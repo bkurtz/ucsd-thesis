@@ -149,28 +149,6 @@
 %   To compile a LaTeX document with an index the 'makeindex'
 %   command will need to be run.  See the wiki for more details.
 
-%% HYPERLINKS
-%   To create a PDF with hyperlinks, you need to include the hyperref package.
-%   THIS HAS TO BE THE LAST PACKAGE INCLUDED!
-%   Note that the options plainpages=false and pdfpagelabels exist
-%   to fix indexing associated with having both (ii) and (2) as pages.
-%   Also, all links must be black according to OGS.
-%   See: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
-%   Note: This may not work correctly with all DVI viewers (i.e. Yap breaks).
-%   NOTE: hyperref will NOT work in draft mode, as noted above.
-% \usepackage[colorlinks=true, pdfstartview=FitV, 
-%             linkcolor=black, citecolor=black, 
-%             urlcolor=black, plainpages=false,
-%             pdfpagelabels]{hyperref}
-% \hypersetup{ pdfauthor = {Your Name Here}, 
-%              pdftitle = {The Title of The Dissertation}, 
-%              pdfkeywords = {Keywords for Searching}, 
-%              pdfcreator = {pdfLaTeX with hyperref package}, 
-%              pdfproducer = {pdfLaTeX} }
-% \urlstyle{same}
-% \usepackage{bookmark}
-
-
 %% CITATIONS
 % Sets citation format
 % and fixes up citations madness
@@ -189,6 +167,31 @@
 \usepackage{rotating}  % Enables the sideways environment (NCPW)
 \usepackage{array}  % Enables "m" tabular environment http://ctan.org/pkg/array
 \usepackage{booktabs}  % Enables \toprule  http://ctan.org/pkg/array
+
+%% HYPERLINKS
+%   Create a PDF with hyperlinks, you need to include the hyperref package.
+%   THIS HAS TO BE THE LAST PACKAGE INCLUDED!
+%   (specifically, hyperref patches several environments in other packages
+%   to make them work and has to be included after them in order to do so.)
+%   Note that hyperref may not work with all DVI viewers and in draft mode.
+%   Per grad division, colored text is not allowed.  Modern hyperref does
+%   not color link text, but does set link colors and some viewers will
+%   include a colored border if we do not disable it.
+\usepackage[pdfborder={0 0 0}]{hyperref}
+%   Older versions of this template suggest the options plainpages=false and
+%   pdfpagelabels to fix indexing associated with having both (ii) and (2) as
+%   pages, however I find this to be unnecessary with TexLive2016.
+%   See: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
+% \usepackage[plainpages=false,pdfpagelabels,pdfborder={0 0 0}]{hyperref}
+% \hypersetup{ pdfauthor = {Your Name Here}, 
+%              pdftitle = {The Title of The Dissertation}, 
+%              pdfkeywords = {Keywords for Searching}, 
+%              pdfcreator = {pdfLaTeX with hyperref package}, 
+%              pdfproducer = {pdfLaTeX} }
+% \urlstyle{same}
+% The bookmarks package causes your PDF to include a linked outline
+\usepackage{bookmark}
+
 
 
 
