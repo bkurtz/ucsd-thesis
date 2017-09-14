@@ -191,6 +191,10 @@
 % \urlstyle{same}
 % The bookmarks package causes your PDF to include a linked outline
 \usepackage{bookmark}
+% If you use \url anywhere, it needs to be in the standard font, rather than a monospace font which is the default (grad division informs me...):
+\urlstyle{same}
+% The same applies for DOI entries presumably.  I'm using bibtex and urlbst usually formats the DOI entry using \path, but I hacked that to use \doi and then we declare a URL command with no options to use the standard text font/format like so:
+\DeclareUrlCommand\doi{}
 
 
 
